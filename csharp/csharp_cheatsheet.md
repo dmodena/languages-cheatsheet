@@ -39,7 +39,7 @@ var name = "Ellen";
 ```
 
 Using String.Format():  
-`string str = String.Format("Her name is {0} and she is {} years old.", name, age);`
+`string str = String.Format("Her name is {0} and she is {1} years old.", name, age);`
 
 Using `$` literal:  
 `string str = $"Her name is {name} and she is {age} years old.";`
@@ -52,12 +52,14 @@ Using `\` (backslash):
 
 Using `@` literal:  
 `string folder = @"\home\ellen\";`  
-`string str = @"He said "Hello!"";`
+`string str = @"He said ""Hello!""";`
+
+**Note:** for escaping quotes with the @ literal, the quotes need to be duplicated.
 
 Iterpolation and escaping:  
 ```
 var name = "Ellen";
-var str = $@"Her name is {name} and she said "Hello!"";
+var str = $@"Her name is {name} and she said ""Hello!""";
 ```
 
 ## Arrays
