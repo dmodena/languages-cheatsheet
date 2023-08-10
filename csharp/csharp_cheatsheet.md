@@ -81,6 +81,11 @@ Declaring an array:
 Declaring an array of arrays:  
 `int[][] array1;`
 
+Declaring a two-dimensional array:  
+`int[,] multi1;`
+
+**Note:** arrays can be multidimensional.
+
 Defining an array of size 5:  
 `int[] array1 = new int[5];`
 
@@ -100,5 +105,36 @@ int[][] arrays1 = {
     new int[] { 5, 10, 15, 20, 25}
 };
 ```
-
 **Note:** for an array of arrays, each sub-array can have a different size.
+
+Declaring and initializing a two-dimensional array:  
+`int [,] multi1 = { { 1, 2, 3 }, { 2, 4, 6 }, { 3, 6, 9 } };`
+
+To get the number of dimensions that an array has:  
+`multi1.Rank;`
+
+To get the length of the array:  
+`array1.Length;`
+
+Multidimensional arrays will return the total number of elements for their lengths:  
+```
+int[] arr1 = { 1, 2, 3 };
+int[,] arr2D = { { 1, 2, 3 }, { 4, 5, 6 } };
+Console.WriteLine(arr1.Length) // 3
+Console.WriteLine(arr2D.Length) // 6
+```
+
+Getting element by position:  
+`array1[2];`
+
+Update element at position:  
+`array1[2] = 42;`
+
+**Note:** arrays are fixed-sized structures, so it is not possible to append, prepend and delete items easily. If you want to append an item, for instance, you first need to resize your array, then add the item to the last index. Prepending would require manual relocation of all items. If your algorithm requires frequent appending, you could probably use a List instead of the array.
+
+Append item to array:  
+```
+int[] array1 = { 1, 2, 3 };
+Array.Resize(ref array1, array1.Length + 1);
+array[3] = 4;
+```
