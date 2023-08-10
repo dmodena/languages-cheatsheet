@@ -10,6 +10,7 @@ Content
 ---
 1. [Creating a project](#creating-a-project)
 1. [Running a project](#running-a-project)
+1. [Naming conventions](#naming-conventions)
 1. [String interpolation](#string-interpolation)
 1. [String escaping](#string-escaping)
 1. [Arrays](#arrays)
@@ -29,6 +30,28 @@ Common project types:
 
 To run a project:  
 `cd <project_name> && dotnet run`
+
+## Naming conventions
+
+Classes and Methods are PascalCase:  
+`public class MyClass`  
+`public string SayHello()`
+
+Variables and arguments are camelCase:  
+`string lastName;`
+`string SayHello(string lastName)`
+
+Constants are PascalCase:  
+`const string Hey = "Hey";`
+
+Public properties are PascalCase:  
+`customer.City = "Frankfurt";`
+
+Private properties are camelCase and start with _ (underscore):  
+`private ILogger _logger;`
+
+Interface names start with the letter I:  
+`public interface IRepository`
 
 ## String interpolation
 
