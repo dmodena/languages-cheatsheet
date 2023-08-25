@@ -118,7 +118,7 @@ Declaring an array of arrays:
 `int[][] array1;`
 
 Declaring a two-dimensional array:  
-`int[,] multi1;`
+`int[,] matrix1;`
 
 **Note:** arrays can be multidimensional.
 
@@ -127,6 +127,11 @@ Defining an array of size 5:
 
 Defining an array of arrays of size 3:  
 `int[][] arrays1 = new int[3][];`
+
+**Note:** for an array of arrays, each sub-array can have a different size, hence the number of columns is not specified during definition.
+
+Defining a 2D array of size 3x3:  
+`int[,] matrix1 = new int[3,3];`
 
 **Note:** arrays defined without values will be initialized to their default values (i.e. 0, false, null).
 
@@ -141,13 +146,18 @@ int[][] arrays1 = {
     new int[] { 5, 10, 15, 20, 25}
 };
 ```
-**Note:** for an array of arrays, each sub-array can have a different size.
 
-Declaring and initializing a two-dimensional array:  
-`int [,] multi1 = { { 1, 2, 3 }, { 2, 4, 6 }, { 3, 6, 9 } };`
+Declaring and initializing a two-dimensional array:
+```
+int [,] matrix1 = {
+    { 1, 2, 3 },
+    { 2, 4, 6 },
+    { 3, 6, 9 }
+};
+```
 
-To get the number of dimensions that an array has:  
-`multi1.Rank;`
+To get the number of dimensions that a multidimensional array has:  
+`matrix1.Rank;`
 
 To get the length of the array:  
 `array1.Length;`
@@ -160,11 +170,56 @@ Console.WriteLine(arr1.Length) // 3
 Console.WriteLine(arr2D.Length) // 6
 ```
 
-Getting element by position:  
-`array1[2];`
+Get number of columns for a row in an array of arrays:
+```
+arrays1[0].Length;
+arrays1[1].Length;
+```
 
-Update element at position:  
-`array1[2] = 42;`
+Get the size of each dimension in a multidimensional array:
+```
+multi1.GetLength(0);
+multi1.GetLength(1);
+multi1.GetLength(2);
+```
+
+Iterate through simple array:
+```
+for (var i = 0; i < array1.Length; i++)
+    var number = array1[i];
+```
+
+Iterate through array of arrays:
+```
+for (var i = 0; i < arrays1.Length; i++) {
+    for (var j = 0; j < arrays1[i].Length; j++) {
+        var number = arrays1[i][j];
+    }
+}
+```
+
+Iterate through 2D array:
+```
+for (var i = 0; i < matrix1.GetLength(0); i++) {
+    for (var j = 0; j < matrix1.GetLength(1); j++) {
+        var number = matrix1[i,j];
+    }
+}
+```
+
+Getting element by position:
+```
+array1[2];
+arrays1[1][2];
+matrix1[1,2];
+```
+
+Update element at position:
+```
+array1[2] = 42;
+arrays1[1][2] = 42;
+matrix2[1,2] = 42;
+```
 
 **Note:** arrays are fixed-sized structures, so it is not possible to append, prepend and delete items easily. If you want to append an item, for instance, you first need to resize your array, then add the item to the last index. Prepending would require manual relocation of all items. If your algorithm requires frequent appending, you could probably use a List instead of the array.
 
