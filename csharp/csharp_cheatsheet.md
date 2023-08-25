@@ -15,7 +15,7 @@ Content
 1. [String escaping](#string-escaping)
 1. [Arrays](#arrays)
 
-## Creating a projetct
+## Creating a project
 
 To list the templates:  
 `dotnet new --list`
@@ -79,7 +79,7 @@ Using `@` literal:
 
 **Note:** for escaping quotes with the @ literal, the quotes need to be duplicated.
 
-Iterpolation and escaping:  
+Interpolation and escaping:  
 ```
 var name = "Ellen";
 var str = $@"Her name is {name} and she said ""Hello!""";
