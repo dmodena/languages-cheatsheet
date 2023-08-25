@@ -20,11 +20,24 @@ Content
 To list the templates:  
 `dotnet new --list`
 
+Create a new solution:  
+`dotnet new sln -n <solution_name> -o <path>`
+
+**Note:** you can omit the `-m` flag if the path and the project or solution have the same name.
+
 Create a new project defining name and folder:  
 `dotnet new <project_type> -n <project_name> -o <path>`
 
 Common project types:  
 `console | webapi | mvc | blasorwasm | xunit`
+
+Add project to solution:  
+`dotnet sln [<solution_name>] add <project_path> [<project_path>...]`
+
+List projects in a solution:  
+`dotnet sln [<solution_name>] list`
+
+**Note:** the solution name is optional if you are in the same folder as the .sln file, and there is only one .sln file in the folder.
 
 ## Running a project
 
