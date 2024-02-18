@@ -14,6 +14,7 @@ Content
 1. [String interpolation](#string-interpolation)
 1. [String escaping](#string-escaping)
 1. [Arrays](#arrays)
+1. [Dictionaries](#dictionaries)
 
 ## Creating a project
 
@@ -228,4 +229,61 @@ Append item to array:
 int[] array1 = { 1, 2, 3 };
 Array.Resize(ref array1, array1.Length + 1);
 array[3] = 4;
+```
+
+## Dictionaries
+
+To create a typed dictionary, include its namespace:  
+```
+using System.Collections.Generic;
+```
+
+Declaring a new Dictionary:  
+```
+var romanNumerals = new Dictionary<int, string>();
+```
+
+Adding new entries:  
+```
+romanNumerals.Add(1, "I");
+romanNumerals.Add(5, "V");
+```
+
+Declaring and adding values at once:  
+```
+var romanNumerals = new Dictionary<int, string>() {
+    { 1, "I" },
+    { 5, "V" },
+    // ...
+}
+```
+
+Get value from known key:  
+```
+var valueOfFive = romanNumerals[5];
+```
+
+Check if a key exists:  
+```
+var exists = romanNumerals.ContainsKey(10);
+```
+
+Get value if key exists:  
+```
+var exists = romanNumerals.TryGetValue(10, out var roman);
+
+if (exists)
+    Console.WriteLine($"10 = { roman }");
+```
+
+Update existing value:  
+```
+romanNumerals[50] = "L";
+```
+
+Iterate through entries:  
+```
+foreach(var entry in romanNumerals) {
+    Console.WriteLine($"Value of {entry.Key} is {entry.Value}");
+}
 ```
