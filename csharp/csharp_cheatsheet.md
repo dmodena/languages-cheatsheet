@@ -70,7 +70,7 @@ Interface names start with the letter I:
 ## String interpolation
 
 Defining some values for string interpolation:  
-```
+```C#
 int age = 25;
 var name = "Ellen";
 ```
@@ -94,7 +94,7 @@ Using `@` literal:
 **Note:** for escaping quotes with the @ literal, the quotes need to be duplicated.
 
 Interpolation and escaping:  
-```
+```C#
 var name = "Ellen";
 var str = $@"Her name is {name} and she said ""Hello!""";
 ```
@@ -140,7 +140,7 @@ Declaring and initializing an array of size 5:
 `int[] array1 = { 1, 2, 3, 4, 5 };`
 
 Declaring and initializing an array of arrays:
-```
+```C#
 int[][] arrays1 = {
     new int[] { 1, 2, 3, 4 },
     new int[] { 2, 4, 6, 8 },
@@ -149,7 +149,7 @@ int[][] arrays1 = {
 ```
 
 Declaring and initializing a two-dimensional array:
-```
+```C#
 int [,] matrix1 = {
     { 1, 2, 3 },
     { 2, 4, 6 },
@@ -164,34 +164,34 @@ To get the length of the array:
 `array1.Length;`
 
 Multidimensional arrays will return the total number of elements for their lengths:  
-```
+```C#
 int[] arr1 = { 1, 2, 3 };
 int[,] arr2D = { { 1, 2, 3 }, { 4, 5, 6 } };
-Console.WriteLine(arr1.Length) // 3
-Console.WriteLine(arr2D.Length) // 6
+Console.WriteLine(arr1.Length); // 3
+Console.WriteLine(arr2D.Length); // 6
 ```
 
 Get number of columns for a row in an array of arrays:
-```
+```C#
 arrays1[0].Length;
 arrays1[1].Length;
 ```
 
 Get the size of each dimension in a multidimensional array:
-```
+```C#
 multi1.GetLength(0);
 multi1.GetLength(1);
 multi1.GetLength(2);
 ```
 
 Iterate through simple array:
-```
+```C#
 for (var i = 0; i < array1.Length; i++)
     var number = array1[i];
 ```
 
 Iterate through array of arrays:
-```
+```C#
 for (var i = 0; i < arrays1.Length; i++) {
     for (var j = 0; j < arrays1[i].Length; j++) {
         var number = arrays1[i][j];
@@ -200,7 +200,7 @@ for (var i = 0; i < arrays1.Length; i++) {
 ```
 
 Iterate through 2D array:
-```
+```C#
 for (var i = 0; i < matrix1.GetLength(0); i++) {
     for (var j = 0; j < matrix1.GetLength(1); j++) {
         var number = matrix1[i,j];
@@ -209,14 +209,14 @@ for (var i = 0; i < matrix1.GetLength(0); i++) {
 ```
 
 Getting element by position:
-```
+```C#
 array1[2];
 arrays1[1][2];
 matrix1[1,2];
 ```
 
 Update element at position:
-```
+```C#
 array1[2] = 42;
 arrays1[1][2] = 42;
 matrix2[1,2] = 42;
@@ -225,7 +225,7 @@ matrix2[1,2] = 42;
 **Note:** arrays are fixed-sized structures, so it is not possible to append, prepend and delete items easily. If you want to append an item, for instance, you first need to resize your array, then add the item to the last index. Prepending would require manual relocation of all items. If your algorithm requires frequent appending, you could probably use a List instead of the array.
 
 Append item to array:  
-```
+```C#
 int[] array1 = { 1, 2, 3 };
 Array.Resize(ref array1, array1.Length + 1);
 array[3] = 4;
@@ -234,23 +234,23 @@ array[3] = 4;
 ## Dictionaries
 
 To create a typed dictionary, include its namespace:  
-```
+```C#
 using System.Collections.Generic;
 ```
 
 Declaring a new Dictionary:  
-```
+```C#
 var romanNumerals = new Dictionary<int, string>();
 ```
 
 Adding new entries:  
-```
+```C#
 romanNumerals.Add(1, "I");
 romanNumerals.Add(5, "V");
 ```
 
 Declaring and adding values at once:  
-```
+```C#
 var romanNumerals = new Dictionary<int, string>() {
     { 1, "I" },
     { 5, "V" },
@@ -259,30 +259,30 @@ var romanNumerals = new Dictionary<int, string>() {
 ```
 
 Get value from known key:  
-```
+```C#
 var valueOfFive = romanNumerals[5];
 ```
 
 Check if a key exists:  
-```
+```C#
 var exists = romanNumerals.ContainsKey(10);
 ```
 
 Get value if key exists:  
-```
+```C#
 var exists = romanNumerals.TryGetValue(10, out var roman);
 
 if (exists)
-    Console.WriteLine($"10 = { roman }");
+    Console.WriteLine($"10 = {roman}");
 ```
 
 Update existing value:  
-```
+```C#
 romanNumerals[50] = "L";
 ```
 
 Iterate through entries:  
-```
+```C#
 foreach(var entry in romanNumerals) {
     Console.WriteLine($"Value of {entry.Key} is {entry.Value}");
 }
